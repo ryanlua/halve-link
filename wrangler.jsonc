@@ -5,10 +5,18 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "halve-link",
-	"main": "src/index.ts",
+	"main": "./src/worker/index.ts",
 	"compatibility_date": "2026-01-28",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
 	"observability": {
 		"enabled": true
+	},
+	"upload_source_maps": true,
+	"assets": {
+		"directory": "./dist/client",
+		"not_found_handling": "single-page-application"
 	},
 	"kv_namespaces": [
 		{
@@ -34,11 +42,6 @@
 	 * https://developers.cloudflare.com/workers/configuration/secrets/
 	 */
 	// "vars": {  "MY_VARIABLE": "production_value" }
-	/**
-	 * Static Assets
-	 * https://developers.cloudflare.com/workers/static-assets/binding/
-	 */
-	// "assets": {  "directory": "./public/",  "binding": "ASSETS" }
 	/**
 	 * Service Bindings (communicate between multiple Workers)
 	 * https://developers.cloudflare.com/workers/wrangler/configuration/#service-bindings
