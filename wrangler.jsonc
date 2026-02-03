@@ -5,8 +5,11 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "halve-link",
-	"main": "src/index.ts",
+	"main": "./workers/app.ts",
 	"compatibility_date": "2026-01-28",
+	"vars": {
+		"VALUE_FROM_CLOUDFLARE": "Hello from Hono/CF"
+	},
 	"observability": {
 		"enabled": true
 	},
@@ -15,7 +18,7 @@
 			"binding": "URLS",
 			"id": "58004580bd27479091dbc087c38bacb5"
 		}
-	]
+	],
 	/**
 	 * Smart Placement
 	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
@@ -44,4 +47,5 @@
 	 * https://developers.cloudflare.com/workers/wrangler/configuration/#service-bindings
 	 */
 	// "services": [  {   "binding": "MY_SERVICE",   "service": "my-service"  } ]
+	"upload_source_maps": true
 }
