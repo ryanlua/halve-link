@@ -19,6 +19,12 @@
 			"id": "58004580bd27479091dbc087c38bacb5"
 		}
 	],
+	"analytics_engine_datasets": [
+		{
+			"binding": "TRACKER",
+			"dataset": "link_clicks"
+		}
+	],
 	/**
 	 * Smart Placement
 	 * https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
