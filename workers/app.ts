@@ -1,7 +1,8 @@
 import { Hono } from "hono";
+import { jwt } from "hono/jwt";
 import { createRequestHandler } from "react-router";
 
-const app = new Hono();
+const app = new Hono<{ Bindings: Env }>();
 
 // Add more routes here
 
@@ -15,5 +16,14 @@ app.get("*", (c) => {
 		cloudflare: { env: c.env, ctx: c.executionCtx },
 	});
 });
+
+// Secure all the API routes
+app.use('/api/*', (c, next) => {
+	const jwtMiddleware = jwt({
+		secret: c.env.JWT_SECRET,
+		alg: 'HS256',
+	})
+	return jwtMiddleware(c, next)
+})
 
 export default app;
