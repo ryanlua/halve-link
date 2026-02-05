@@ -4,6 +4,11 @@ import { createRequestHandler } from "react-router";
 
 const app = new Hono<{ Bindings: Env }>();
 
+const requestHandler = createRequestHandler(
+  () => import("virtual:react-router/server-build"),
+  import.meta.env.MODE
+);
+
 // Secure all the API routes
 app.use('/api/*', (c, next) => {
   const jwtMiddleware = jwt({
@@ -14,11 +19,6 @@ app.use('/api/*', (c, next) => {
 })
 
 app.get("*", (c) => {
-  const requestHandler = createRequestHandler(
-    () => import("virtual:react-router/server-build"),
-    import.meta.env.MODE,
-  );
-
   return requestHandler(c.req.raw, {
     cloudflare: { env: c.env, ctx: c.executionCtx },
   });
