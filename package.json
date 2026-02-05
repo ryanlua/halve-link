@@ -30,7 +30,7 @@
     "@cloudflare/vite-plugin": "^1.13.5",
     "@react-router/dev": "7.12.0",
     "@tailwindcss/vite": "^4.1.13",
-    "@types/node": "^22",
+    "@types/node": "^25",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",
     "shadcn": "^3.8.2",
