@@ -3,3 +3,5 @@ worker-configuration.d.ts
 
 # Framework build output
 .react-router
+
+.github
