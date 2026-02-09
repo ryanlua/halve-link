@@ -29,6 +29,13 @@ app.post('/api/url', async (c) => {
   return c.json({ success: true });
 });
 
+// List all URL mapping keys
+app.get("/api/urls", async (c) => {
+  const env = c.env;
+  const keys = await env.URLS.list();
+  return c.json({ keys: keys.keys.map((entry) => entry.name) });
+});
+
 // Redirect based on slug
 app.get("/:slug", async (c) => {
   const slug = c.req.param("slug");
