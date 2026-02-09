@@ -18,6 +18,17 @@ app.use("/api/*", (c, next) => {
   return jwtMiddleware(c, next);
 });
 
+// Create a new URL mapping
+app.post('/api/url', async (c) => {
+  const env = c.env;
+  const payload = await c.req.json();
+  const slug = payload.slug;
+  const url = payload.url;
+  console.log({ slug, url });
+  await env.URLS.put(slug, url);
+  return c.json({ success: true });
+});
+
 // Redirect based on slug
 app.get("/:slug", async (c) => {
   const slug = c.req.param("slug");
