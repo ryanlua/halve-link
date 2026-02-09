@@ -25,7 +25,13 @@ app.post('/api/url', async (c) => {
   const slug = payload.slug;
   const url = payload.url;
   console.log({ slug, url });
-  await env.URLS.put(slug, url);
+  const cfaccessemail = c.req.header("cf-access-authenticated-user-email");
+  await env.URLS.put(slug, url, {
+    metadata: {
+      creator: cfaccessemail,
+      date: new Date().toISOString()
+    },
+  });
   return c.json({ success: true });
 });
 
