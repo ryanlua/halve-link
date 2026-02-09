@@ -1,16 +1,19 @@
 {
 	"servers": {
-		"cloudflare-docs": {
-			"type": "http",
-			"url": "https://docs.mcp.cloudflare.com/mcp"
-		},
 		"cloudflare-bindings": {
 			"type": "http",
 			"url": "https://bindings.mcp.cloudflare.com/mcp"
 		},
-		"shadcn": {
+		"cloudflare-docs": {
+			"type": "http",
+			"url": "https://docs.mcp.cloudflare.com/mcp"
+		},
+		"eslint": {
+			"type": "stdio",
 			"command": "npx",
-			"args": ["shadcn@latest", "mcp"]
+			"args": [
+				"@eslint/mcp@latest"
+			]
 		}
 	},
 	"inputs": []
