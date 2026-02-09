@@ -7,6 +7,10 @@
 		"cf-typegen": "wrangler types",
 		"deploy": "npm run build && wrangler deploy",
 		"dev": "react-router dev",
+		"format": "prettier --write .",
+		"format:check": "prettier --check .",
+		"lint": "npm run typecheck && npm run format:check && eslint .",
+		"lint:fix": "prettier --write . && eslint . --fix",
 		"postinstall": "npm run cf-typegen",
 		"preview": "npm run build && vite preview",
 		"typecheck": "npm run cf-typegen && react-router typegen && tsc -b"
