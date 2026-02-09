@@ -1,5 +1,5 @@
 import { Button, Table, LayerCard } from "@cloudflare/kumo";
-import { TrashIcon } from "@phosphor-icons/react";
+import { PencilSimpleIcon, TrashSimpleIcon } from "@phosphor-icons/react";
 
 const linkData = [
   {
@@ -34,9 +34,14 @@ export function LinkTable() {
                 <Table.Cell>{row.by}</Table.Cell>
                 <Table.Cell>{row.date}</Table.Cell>
                 <Table.Cell className="text-right">
-                  <Button variant="ghost" size="sm" shape="square">
-                    <TrashIcon weight="bold" size={16} />
-                  </Button>
+                  <div className="flex items-center gap-2">
+                    <Button variant="ghost" size="sm" shape="square">
+                      <PencilSimpleIcon weight="bold" size={16} />
+                    </Button>
+                    <Button variant="ghost" size="sm" shape="square">
+                      <TrashSimpleIcon weight="bold" size={16} />
+                    </Button>
+                  </div>
                 </Table.Cell>
               </Table.Row>
             ))}
