@@ -1,7 +1,7 @@
 import { LinkTable } from "../components/LinkTable";
 import type { Route } from "./+types/home";
 
-export function meta({}: Route.MetaArgs) {
+export function meta(_args: Route.MetaArgs) {
 	return [
 		{ title: "Links" },
 		{ name: "description", content: "Manage your shortened links" },
