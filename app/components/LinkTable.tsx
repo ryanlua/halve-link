@@ -43,12 +43,22 @@ export function LinkTable() {
 									<Table.Cell className="text-right">
 										<div className="flex items-center gap-2">
 											<Tooltip content="Edit" asChild>
-												<Button variant="ghost" size="sm" shape="square">
+												<Button
+													variant="ghost"
+													size="sm"
+													shape="square"
+													aria-label="Edit link"
+												>
 													<PencilSimpleIcon weight="bold" size={16} />
 												</Button>
 											</Tooltip>
 											<Tooltip content="Delete" asChild>
-												<Button variant="ghost" size="sm" shape="square">
+												<Button
+													variant="ghost"
+													size="sm"
+													shape="square"
+													aria-label="Delete link"
+												>
 													<TrashSimpleIcon weight="bold" size={16} />
 												</Button>
 											</Tooltip>
